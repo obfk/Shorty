@@ -17,10 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dOd-Z9-GFZ">
-                                <rect key="frame" x="0.0" y="66" width="600" height="534"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </webView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bjf-ke-EFb">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
@@ -43,27 +39,80 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dOd-Z9-GFZ">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="492" id="hK0-m2-tNW"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="hK0-m2-tNW"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4Xa-NQ-7U2"/>
+                                </connections>
+                            </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xrg-JM-8H8">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem enabled="NO" systemItem="play" id="wf3-fI-LIH">
+                                        <connections>
+                                            <action selector="shortenURL:" destination="BYZ-38-t0r" id="Xfg-EV-aal"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="60m-Gb-8kW"/>
+                                    <barButtonItem title="Tap arrow to shorten." style="plain" id="PHj-8c-yj4">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="SBo-ki-Bt9"/>
+                                    <barButtonItem enabled="NO" title="Copy" id="nVN-kt-mnC">
+                                        <connections>
+                                            <action selector="clipboardURL:" destination="BYZ-38-t0r" id="T1k-zE-sKI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dOd-Z9-GFZ" firstAttribute="leading" secondItem="Bjf-ke-EFb" secondAttribute="leading" id="9QI-We-In4"/>
                             <constraint firstItem="dOd-Z9-GFZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9aF-0e-caR"/>
                             <constraint firstItem="dOd-Z9-GFZ" firstAttribute="top" secondItem="Bjf-ke-EFb" secondAttribute="bottom" constant="2" id="D25-Wc-shy"/>
+                            <constraint firstItem="dOd-Z9-GFZ" firstAttribute="bottom" secondItem="Xrg-JM-8H8" secondAttribute="top" id="Dhr-dn-EgT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Xrg-JM-8H8" secondAttribute="bottom" id="EnE-jp-sWQ"/>
+                            <constraint firstItem="dOd-Z9-GFZ" firstAttribute="bottom" secondItem="Xrg-JM-8H8" secondAttribute="top" id="JNE-Ml-cuy"/>
                             <constraint firstItem="dOd-Z9-GFZ" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="PoM-Re-Pta"/>
-                            <constraint firstItem="dOd-Z9-GFZ" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="UcA-KS-hPJ"/>
+                            <constraint firstItem="dOd-Z9-GFZ" firstAttribute="trailing" secondItem="Xrg-JM-8H8" secondAttribute="trailing" id="R5r-75-fcm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Xrg-JM-8H8" secondAttribute="trailing" constant="-16" id="Ubh-KF-ekN"/>
                             <constraint firstItem="dOd-Z9-GFZ" firstAttribute="trailing" secondItem="Bjf-ke-EFb" secondAttribute="trailing" id="VoT-Ys-6bs"/>
                             <constraint firstItem="Bjf-ke-EFb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="WRF-je-2GT"/>
                             <constraint firstItem="Bjf-ke-EFb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="Yjf-Gy-O1X"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Bjf-ke-EFb" secondAttribute="trailing" constant="-16" id="bl4-lo-fAa"/>
+                            <constraint firstItem="Xrg-JM-8H8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="dzY-Hw-7QG"/>
+                            <constraint firstItem="dOd-Z9-GFZ" firstAttribute="trailing" secondItem="Bjf-ke-EFb" secondAttribute="trailing" id="e1e-PW-ARh"/>
+                            <constraint firstItem="dOd-Z9-GFZ" firstAttribute="top" secondItem="Bjf-ke-EFb" secondAttribute="bottom" id="nhp-bI-5FQ"/>
+                            <constraint firstItem="dOd-Z9-GFZ" firstAttribute="leading" secondItem="Xrg-JM-8H8" secondAttribute="leading" id="vX2-Op-j8r"/>
+                            <constraint firstItem="dOd-Z9-GFZ" firstAttribute="leading" secondItem="Bjf-ke-EFb" secondAttribute="leading" id="y0g-eT-o69"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="9QI-We-In4"/>
                                 <exclude reference="9aF-0e-caR"/>
+                                <exclude reference="D25-Wc-shy"/>
+                                <exclude reference="Dhr-dn-EgT"/>
                                 <exclude reference="PoM-Re-Pta"/>
+                                <exclude reference="R5r-75-fcm"/>
+                                <exclude reference="VoT-Ys-6bs"/>
+                                <exclude reference="vX2-Op-j8r"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="clipboardButton" destination="nVN-kt-mnC" id="csr-OV-4Ji"/>
+                        <outlet property="shortLabel" destination="PHj-8c-yj4" id="KK0-kJ-UyT"/>
+                        <outlet property="shortenButton" destination="wf3-fI-LIH" id="m4X-Lh-q9z"/>
                         <outlet property="urlField" destination="b5o-rY-cdW" id="BN1-PF-Isk"/>
                         <outlet property="webView" destination="dOd-Z9-GFZ" id="MLS-oz-QVl"/>
                     </connections>
